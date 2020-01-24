@@ -1,0 +1,37 @@
+interface IGamePiece {
+  int getValue();
+}
+
+class BaseTile implements IGamePiece {
+  int value;
+  
+  BaseTile(int value) {
+    this.value =  value;
+  }
+
+  @Override
+  public int getValue() {
+    // TODO Auto-generated method stub
+    return this.value;
+  }
+  
+}
+
+class MergedTile implements IGamePiece {
+  IGamePiece piece1;
+  IGamePiece piece2;
+  
+  MergedTile(IGamePiece piece1, IGamePiece piece2) {
+    this.piece1 = piece1;
+    this.piece2 = piece2;
+  }
+  @Override
+  public int getValue() {
+    // TODO Auto-generated method stub
+    return this.piece1.getValue() + this.piece2.getValue() + this.getValue();
+  }
+}
+
+class ExamplesGamePiece {
+  
+}

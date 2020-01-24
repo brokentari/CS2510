@@ -1,0 +1,33 @@
+interface GamePiece {
+  int getValue();
+}
+
+class BaseTile implements GamePiece {
+  int value;
+  
+  BaseTile(int value) {
+    this.value =  value;
+  }
+
+  @Override
+  public int getValue() {
+    // TODO Auto-generated method stub
+    return this.value;
+  }
+  
+}
+
+class MergedTile implements GamePiece {
+  GamePiece piece1;
+  GamePiece piece2;
+  
+  MergedTile(GamePiece piece1, GamePiece piece2) {
+    this.piece1 = piece1;
+    this.piece2 = piece2;
+  }
+  @Override
+  public int getValue() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+}

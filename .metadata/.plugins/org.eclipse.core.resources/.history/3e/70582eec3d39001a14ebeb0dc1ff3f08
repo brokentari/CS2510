@@ -1,0 +1,128 @@
+import tester.Tester;
+
+interface ICircuit {
+  int countComponents();
+  double totalVoltage();
+}
+
+class Battery implements ICircuit {
+  String name;
+  double voltage;
+  double nominalResistance;
+  
+  Battery (String name, double voltage, double nominalResistance) {
+    this.name = name;
+    this.voltage = voltage;
+    this.nominalResistance = nominalResistance;
+  }
+
+  @Override
+  public int countComponents() {
+    // TODO Auto-generated method stub
+    return 1;
+  }
+
+  @Override
+  public double totalVoltage() {
+    // TODO Auto-generated method stub
+    return this.voltage;
+  }
+}
+
+class Resistor implements ICircuit {
+  String name;
+  double resistance;
+  
+  Resistor (String name, double resistance) {
+    this.name = name;
+    this.resistance = resistance;
+  }
+
+  @Override
+  public int countComponents() {
+    // TODO Auto-generated method stub
+    return 1;
+  }
+
+  @Override
+  public double totalVoltage() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+}
+
+class Series implements ICircuit {
+  ICircuit first;
+  ICircuit second;
+  
+  Series (ICircuit first, ICircuit second) {
+    this.first = first;
+    this.second = second;
+  }
+
+  @Override
+  public int countComponents() {
+    // TODO Auto-generated method stub
+    return this.first.countComponents() + this.second.countComponents();
+  }
+
+  @Override
+  public double totalVoltage() {
+    // TODO Auto-generated method stub
+    return this.first.totalVoltage() + this.second.totalVoltage();
+  }
+}
+
+class Parallel implements ICircuit {
+  ICircuit first;
+  ICircuit second;
+  
+  Parallel (ICircuit first, ICircuit second) {
+    this.first = first;
+    this.second = second;
+  }
+
+  @Override
+  public int countComponents() {
+    // TODO Auto-generated method stub
+    return this.first.countComponents() + this.second.countComponents();
+  }
+
+  @Override
+  public double totalVoltage() {
+    // TODO Auto-generated method stub
+    return this.first.totalVoltage() + this.second.totalVoltage();
+  }
+}
+
+class ExamplesCircuits {
+  // Batteries
+  ICircuit batteryOne = new Battery("B 1", 10, 25);
+  ICircuit batteryTwo = new Battery("B 2", 20, 25);
+  
+  // Resistors
+  ICircuit resistorOne = new Resistor("R 1", 100);
+  ICircuit resistorTwo = new Resistor("R 2", 250);
+  ICircuit resistorThree = new Resistor("R 3", 500);
+  ICircuit resistorFour = new Resistor("R 4", 200);
+  
+  // Circuits
+  ICircuit simpleSeries = new Series(batteryOne, resistorOne);
+  ICircuit componentOne = new Series(new Series(resistorFour, batteryOne), batteryTwo);
+  ICircuit complexSeries = new Parallel(componentOne,
+      new Parallel(
+          new Parallel(resistorThree, resistorTwo), 
+          resistorOne));
+  
+  boolean testCount(Tester t) {
+    return t.checkExpect(batteryOne.countComponents(), 1) &&
+           t.checkExpect(componentOne.countComponents(), 3) &&
+           t.checkExpect(complexSeries.countComponents(), 6);
+  }
+  
+  boolean testVoltage(Tester t) {
+    return t.checkExpect(batteryOne.totalVoltage(), 10.0) &&
+           t.checkExpect(resistorOne.totalVoltage(), 0.0) &&
+           t.checkExpect(complexSeries.totalVoltage(), 30.0);
+  }
+}
