@@ -7,5 +7,5 @@ class Protein {
 }
 
 class ProteinExamples{
-  
+  ProteinExamples() {};
 }
