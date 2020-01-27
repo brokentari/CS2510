@@ -1,17 +1,11 @@
-import tester.Tester;
-
-interface RNA {
+interface IRNA {
   
 }
 
-class Protein {
-  Protein() {};
+class MtLoString implements IRNA {
+  MtLoString() { };
 }
 
-class ProteinExamples{
-  ProteinExamples() {};
+class ConsLoString implements IRNA {
   
-  boolean testExamples(Tester t) {
-    return t.checkExpect(5+5, 10);
-  }
 }
