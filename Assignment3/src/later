@@ -1,0 +1,11 @@
+public ILoString getBase(String base) {
+    return base + this.base;
+  }
+  
+  public ILoString getRest(ILoString rest) {
+    return rest + this.rest;
+  }
+  
+  public String getCodon() {
+    return this.rest.getRest(getBase(this.base));
+  }

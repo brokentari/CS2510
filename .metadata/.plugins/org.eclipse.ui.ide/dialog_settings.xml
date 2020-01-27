@@ -10,4 +10,13 @@
 			<item value="/Users/saul/Documents/GitHub"/>
 		</list>
 	</section>
+	<section name="NewWizardAction">
+	</section>
+	<section name="CleanDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="447"/>
+		<item key="DIALOG_Y_ORIGIN" value="192"/>
+		<item key="DIALOG_WIDTH" value="546"/>
+		<item key="DIALOG_HEIGHT" value="363"/>
+		<item key="TOGGLE_SELECTED" value="false"/>
+	</section>
 </section>
