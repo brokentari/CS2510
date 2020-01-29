@@ -62,8 +62,7 @@ class Stem implements ITree {
     // TODO Auto-generated method stub
     return new OverlayImage(this.tree.draw(),
         new RotateImage(
-            new LineImage(new Posn(0, this.length), Color.BLACK).movePinhole(0, -(this.length / 2)),
-            this.theta * (Math.PI / 180)));
+            new LineImage(new Posn(this.length, 0), Color.BLACK).movePinhole((this.length / 2), 0), -theta));
   }
 
   @Override
@@ -108,29 +107,24 @@ class Branch implements ITree {
   }
 
   public WorldImage relativePinhole(WorldImage line, double theta, int length) {
-    if (theta > 180) {
-      return new RotateImage(line.movePinhole(0, length / 2), theta);
-    }
-    else {
-      return new RotateImage(line.movePinhole(0, -length / 2), theta);
-    }
+      return new RotateImage(line.movePinhole(length / 2, 0), -theta);
   }
   
   @Override
   public WorldImage draw() {
     // TODO Auto-generated method stub
     return new OverlayImage(
-        new OverlayImage(this.left.draw(),
-            new RotateImage(new LineImage(new Posn(0, this.leftLength), Color.black).movePinhole(0,
-                this.leftLength / 2), this.leftTheta)).movePinhole(
-                    Math.sin(Math.toRadians(leftTheta)) * this.leftLength,
-                    -(Math.cos(Math.toRadians(leftTheta)) * this.leftLength)),
-        (new OverlayImage(this.right.draw(),
-            relativePinhole(new LineImage(new Posn(0, this.rightLength), Color.black),
+        new OverlayImage(this.left.draw(), 
+            relativePinhole(new LineImage(new Posn(this.leftLength, 0), Color.black),
+            this.leftTheta, this.leftLength)).movePinhole(
+                    Math.sin(Math.toRadians(180 - leftTheta)) * this.leftLength,
+                    (Math.cos(Math.toRadians(180 -leftTheta)) * this.leftLength)),
+        new OverlayImage(this.right.draw(),
+            relativePinhole(new LineImage(new Posn(this.rightLength, 0), Color.black),
                 this.rightTheta, this.rightLength)).movePinhole(
-                    -(Math.sin(Math.toRadians(rightTheta)) * this.rightLength),
-                    (Math.cos(Math.toRadians(rightTheta)) * this.rightLength))));
-  }
+                    -(Math.cos(Math.toRadians(rightTheta)) * this.rightLength),
+                    (Math.sin(Math.toRadians(rightTheta)) * this.rightLength)));
+  }  
 
   @Override
   public boolean isDrooping() {
@@ -150,12 +144,14 @@ class Branch implements ITree {
 
 }
 
-class ExampleTree {
-  ITree tree1 = new Branch(30, 30, 135, 40, new Leaf(10, Color.RED), new Leaf(15, Color.BLUE));
-  ITree tree2 = new Branch(30, 30, 115, 65, new Leaf(15, Color.GREEN), new Leaf(8, Color.ORANGE));
+class ExamplesTree {
+  ITree tree1 = new Branch(30, 30, 135, 40, new Leaf(5, Color.RED), new Leaf(5, Color.BLUE));
+  ITree tree2 = new Branch(30, 30, 135, 65, new Leaf(5, Color.GREEN), new Leaf(5, Color.ORANGE));
   ITree tree3 = new Stem(40, 90, tree1);
   ITree tree4 = new Stem(50, 90, tree2);
-  ITree tree5 = tree1.combine(40, 50, 150.0, 30.0, tree2);
+  ITree tree5 = new Branch(40, 50, 150, 30, tree1, tree2);
+  
+  WorldImage test = new RotateImage(new LineImage(new Posn(60, 0), Color.black), -150);
 
   boolean testDrawTree(Tester t) {
     WorldCanvas c = new WorldCanvas(500, 500);
