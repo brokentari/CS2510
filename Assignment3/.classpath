@@ -7,5 +7,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="/Users/saul/EclipseJars/tester.jar"/>
+	<classpathentry kind="lib" path="/Users/saul/EclipseJars/javalib.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

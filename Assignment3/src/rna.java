@@ -13,6 +13,8 @@ interface ILoString {
   
   ILoLoString translate();
   
+  ILoString findRestCodons();
+  
 }
 
 interface ILoLoString {
@@ -49,6 +51,20 @@ class MtLoString implements ILoString {
   public ILoLoString translate() {
     // TODO Auto-generated method stubro
     return null;
+  }
+
+
+  @Override
+  public String getBase() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+
+  @Override
+  public ILoString findRestCodons() {
+    // TODO Auto-generated method stub
+    return this;
   }
 }
 
@@ -105,31 +121,24 @@ class ConsLoString implements ILoString {
     return 1 + this.rest.countBase();
   }
   
-  public ILoLoString translate() {
-    ILoString listOfCodon = this.convertCodons();
-    if (listOfCodon.getBase().equals("UAG") 
-      || (listOfCodon.getBase().equals("UAA") 
-       || (listOfCodon.getBase().equals("UGA")))) {
-       return new ILoLoString(this);
+  public ILoString findRestCodons() {
+    if (this.first.equals("UAG")
+        || this.first.equals("UAA")
+        || this.first.equals("UGA")
+        || (this.first.length() < 3 )) {
+      return new MtLoString();
     }
     else {
-      return null;
+      return new ConsLoString(this.first, this.rest.findRestCodons());
     }
+  }
+  
+  
+  
+  public ILoLoString translate() {
+    return new ConsLoLoString(this.findRestCodons(), this.rest.translate());
   }
 }
-  
-  /*
-  boolean checkEnd() {
-    if ((this.codon.length() < 3) || 
-        (this.codon.contentEquals("UAG")) ||
-        (this.codon.contentEquals("UAA")) ||
-        (this.codon.contentEquals("UGA"))) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-  */
 
 class MtLoProtein implements ILoLoString {
   
@@ -137,9 +146,9 @@ class MtLoProtein implements ILoLoString {
 
 class ConsLoLoString implements ILoLoString {
   ILoString first;
-  ILoString rest;
+  ILoLoString rest;
   
-  ConsLoLoString(ILoString first, ILoString rest) {
+  ConsLoLoString(ILoString first, ILoLoString rest) {
     this.first = first;
     this.rest = rest;
   }
