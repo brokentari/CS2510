@@ -9,3 +9,35 @@ public ILoString getBase(String base) {
   public String getCodon() {
     return this.rest.getRest(getBase(this.base));
   }
+  
+  
+  
+  
+    @Override
+  public double getMaxLength() {
+    // TODO Auto-generated method stub
+    if (this.leftLength > this.rightLength) {
+      return this.leftLength;
+    }
+    else {
+      return this.rightLength;
+    }
+  }
+
+  public double getMaxAngle() {
+    if (this.leftLength > this.rightLength) {
+      return 180 - this.leftTheta;
+    }
+    else {
+      return this.rightTheta;
+    }
+  }
+
+  public ITree getMaxTree() {
+    if (this.leftLength > this.rightLength) {
+      return this.left;
+    }
+    else {
+      return this.right;
+    }
+  }
