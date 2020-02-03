@@ -8,7 +8,14 @@ class CakeRecipe {
   double milk;
   boolean areVolumes = false;
 
-  CakeRecipe() { }
+  CakeRecipe() {
+    this.flour = 0;
+    this.sugar = 0;
+    this.egg = 0;
+    this.butter = 0;
+    this.milk = 0;
+    this.areVolumes = false;
+  }
 
   CakeRecipe(double flour, double sugar, double egg, double butter, double milk,
       boolean areVolumes) {
@@ -73,6 +80,7 @@ class ExamplesCakes {
   CakeRecipe cake2 = new CakeRecipe(7, 7, 6, 6, 1);
   CakeRecipe cake3 = new CakeRecipe(1.647, 1, 3.4285, 0.75, 0.125, true);
   CakeRecipe cake4 = new CakeRecipe(4, 2, 2);
+  CakeRecipe cake5 = new CakeRecipe(1, 1, 1, 1, 1);
 
   boolean testSame(Tester t) {
     return t.checkExpect(this.cake1.sameRecipe(cake2), true)
