@@ -2,4 +2,8 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="javalib.worldimages.AboveAlignImage"/>
     <fullyQualifiedTypeName name="tester.Tester"/>
+    <fullyQualifiedTypeName name="javalib.worldimages.WorldImage"/>
+    <fullyQualifiedTypeName name="javalib.worldimages.OutlineMode"/>
+    <fullyQualifiedTypeName name="javalib.worldcanvas.WorldCanvas"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
 </qualifiedTypeNameHistroy>
