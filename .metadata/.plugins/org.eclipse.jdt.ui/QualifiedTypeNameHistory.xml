@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="javalib.worldimages.AboveAlignImage"/>
-    <fullyQualifiedTypeName name="tester.Tester"/>
     <fullyQualifiedTypeName name="javalib.worldimages.WorldImage"/>
     <fullyQualifiedTypeName name="javalib.worldimages.OutlineMode"/>
     <fullyQualifiedTypeName name="javalib.worldcanvas.WorldCanvas"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="tester.Tester"/>
 </qualifiedTypeNameHistroy>
