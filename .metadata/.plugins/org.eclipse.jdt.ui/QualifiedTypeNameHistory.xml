@@ -6,4 +6,8 @@
     <fullyQualifiedTypeName name="javalib.worldcanvas.WorldCanvas"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
     <fullyQualifiedTypeName name="tester.Tester"/>
+    <fullyQualifiedTypeName name="java.awt.Color"/>
+    <fullyQualifiedTypeName name="javalib.worldimages.TextImage"/>
+    <fullyQualifiedTypeName name="javalib.worldimages.WorldEnd"/>
+    <fullyQualifiedTypeName name="Global"/>
 </qualifiedTypeNameHistroy>
