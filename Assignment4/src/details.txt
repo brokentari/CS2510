@@ -1,0 +1,21 @@
+Tree.java:
+70: YuTing Ger -- (Info) [0.0]
+	You only need to provide the methods on parameters for additional method-level templates.
+196: YuTing Ger -- (Error) [-1.0]
+	for the left part of the tree, you should pass in (leftTheta - 90) to changeDegree.
+
+210: YuTing Ger -- (Error) [-2.0]
+	To find the width of a tree, you find the distance between the rightmost point of the tree and the leftmost point of the tree. The leftmost should be Math.min(0, the current point/base of this tree + the leftmost of the rest of it (this.tree)). The rightmost should be similar but with Math.max instead.
+353: YuTing Ger -- (Error) [-1.0]
+	for the left part of the tree, you should pass in (leftTheta - 90) to changeDegree.
+The given example tree1.combine(40, 50, 150, 30, tree2):
+- to rotate tree1 to 150, you need to rotate it by 60 degrees (to the left)
+
+
+
+355: YuTing Ger -- (Error) [-2.0]
+		To find the width of a tree, you find the distance between the rightmost point of the tree and the leftmost point of the tree. Implementation should be similar to stem but there is a possibility that the leftmost point could be on the right branch depending on the angle and vice versa.
+436: YuTing Ger -- (Error) [-1.0]
+	Missing a test case for a Stem with the expected outcome being true.
+455: YuTing Ger -- (Error) [-1.0]
+	Missing test case for a Leaf.
