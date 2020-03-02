@@ -2,12 +2,17 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="javalib.worldimages.AboveAlignImage"/>
     <fullyQualifiedTypeName name="javalib.worldimages.WorldImage"/>
-    <fullyQualifiedTypeName name="javalib.worldimages.OutlineMode"/>
     <fullyQualifiedTypeName name="javalib.worldcanvas.WorldCanvas"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
-    <fullyQualifiedTypeName name="tester.Tester"/>
     <fullyQualifiedTypeName name="java.awt.Color"/>
     <fullyQualifiedTypeName name="javalib.worldimages.TextImage"/>
     <fullyQualifiedTypeName name="javalib.worldimages.WorldEnd"/>
     <fullyQualifiedTypeName name="Global"/>
+    <fullyQualifiedTypeName name="javalib.funworld.World"/>
+    <fullyQualifiedTypeName name="javalib.worldimages.OutlineMode"/>
+    <fullyQualifiedTypeName name="javalib.worldimages.CircleImage"/>
+    <fullyQualifiedTypeName name="tester.Tester"/>
+    <fullyQualifiedTypeName name="com.sun.org.apache.xpath.internal.functions.Function"/>
+    <fullyQualifiedTypeName name="java.util.function.Function"/>
+    <fullyQualifiedTypeName name="java.util.function.BiFunction"/>
 </qualifiedTypeNameHistroy>
